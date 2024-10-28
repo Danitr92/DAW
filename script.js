@@ -52,7 +52,6 @@ class Carrito {
         const tdTotalPrecio = document.createElement('td');
         tdTotalPrecio.innerText = total.toFixed(2) + " " + moneda;
         trTotal.append(tdTotalLabel, tdTotalPrecio);
-
         tablaCesta.append(trTotal);
     }
 
@@ -88,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 if (cuadro.value > 0){    
                     cuadro.value--;
                     cant = cuadro.value;
-                    precioTotal.innerText = (product.price * cuadro.value).toFixed([2]) + " " + moneda;
                     precioFinal(product, cant, precioTotal);
                 }
             });
@@ -97,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 if (cuadro.value >= 0){ 
                     cuadro.value++;
                     cant = cuadro.value;
-                    precioTotal.innerText = (product.price * cuadro.value).toFixed([2]) + " " + moneda;
                     precioFinal(product, cant, precioTotal);
                 }
             });
@@ -117,8 +114,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
     function precioFinal(product, cant, precioTotal) {
-        const total = (product.price * cant).toFixed(2);
-        precioTotal.innerText = total + " " + moneda;
+        precioTotal.innerText = (product.price * cant).toFixed([2]) + " " + moneda;
 
         if (cant > 0) {
             carrito.meterProducto(product, parseInt(cant));

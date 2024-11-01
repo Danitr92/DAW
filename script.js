@@ -86,18 +86,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             let cant = 0;
             but1.addEventListener('click', function (event){
-                if (cuadro.value > 0){    
+                if (cuadro.value > 0){ 
                     cuadro.value--;
                     cant = cuadro.value;
                     precioFinal(product, cant, precioTotal);
                 }
+                else if(isNaN(cuadro.value)) {
+                    cuadro.value = cant;
+                    alert('El valor debe de ser numérico');
+                }
             });
 
             but2.addEventListener('click', function (event){
-                if (cuadro.value >= 0){ 
+                if (cuadro.value >= 0){    
                     cuadro.value++;
                     cant = cuadro.value;
                     precioFinal(product, cant, precioTotal);
+                }                
+                else if (isNaN(cuadro.value)) {
+                    cuadro.value = cant;
+                    alert('El valor debe de ser numérico');
                 }
             });
 

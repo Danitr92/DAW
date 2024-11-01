@@ -51,9 +51,11 @@ class Carrito {
         tdTotalLabel.innerHTML = `<strong>Total a pagar:</strong>`;
         const tdTotalPrecio = document.createElement('td');
         tdTotalPrecio.innerText = total.toFixed(2) + " " + moneda;
+        
         trTotal.append(tdTotalLabel, tdTotalPrecio);
         tablaCesta.append(trTotal);
-    }
+
+        }
 
 }
 
@@ -99,6 +101,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 }
             });
 
+            cuadro.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    if (isNaN(cuadro.value)) {
+                        this.value = cant;
+                        alert('El valor debe de ser numérico');
+                    }
+                    else if (cuadro.value < 0){
+                        this.value = cant;
+                        alert('El valor debe de ser >= 0');
+                    }
+                    else{
+                        cant = cuadro.value;
+                        precioFinal(product, cant, precioTotal);
+                    }
+                }
+            });
+
             const precio = document.createElement('td');
             precio.innerText = product.price + " " + moneda;
 
@@ -113,6 +132,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+    
+
     function precioFinal(product, cant, precioTotal) {
         precioTotal.innerText = (product.price * cant).toFixed([2]) + " " + moneda;
 
@@ -122,9 +143,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         else{
             carrito.quitarProducto(product, 1);
         }
-
         carrito.mostrarCesta();
-
     }
 
 

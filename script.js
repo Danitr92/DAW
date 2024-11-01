@@ -126,6 +126,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 }
             });
 
+            document.addEventListener('click', function(event) {
+                if (isNaN(cuadro.value)) {
+                    cuadro.value = cant;
+                    alert('El valor debe de ser numérico');
+                }
+                else if (cuadro.value < 0){
+                    cuadro.value = cant;
+                    alert('El valor debe de ser >= 0');
+                }
+                else{
+                    cant = cuadro.value;
+                    precioFinal(product, cant, precioTotal);
+                }
+            });
+
             const precio = document.createElement('td');
             precio.innerText = product.price + " " + moneda;
 

@@ -1,0 +1,35 @@
+<form #filtroForm="ngForm" (ngSubmit)="aplicarFiltro()" class="card p-3 shadow">
+  <h4 class="text-center mb-2" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">Filtrar productos</h4>
+  <div class="collapse" id="collapseExample1">
+    <div class="row">
+      <div class="col-md-4 my-2">
+        <label for="nombre" class="form-label">Nombre del producto</label>
+        <input class="form-control bg-dark-subtle" type="text" [(ngModel)]="filtros.name" name="name">
+      </div>
+
+      <div class="col-md-4 my-2">
+        <label for="category" class="form-label">Categoría</label>
+        <select class="form-select bg-dark-subtle" [(ngModel)]="filtros.category" name="category">
+          <option value="" selected>Selecciona una categoría</option>
+          <option value="hombre">Hombre</option>
+          <option value="mujer">Mujer</option>
+          <option value="niño">Niño</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 my-2">
+        <label for="price" class="form-label">Precio máximo</label>
+        <input type="number" class="form-control mb-1 bg-dark-subtle" [(ngModel)]="filtros.price" name="price">
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-auto">
+        <input type="submit" value="Aplicar Filtro" class="btn btn-dark">
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-dark" (click)="borrarFiltro(filtroForm)">Borrar Filtro</button>
+      </div>
+    </div>
+  </div>
+</form>

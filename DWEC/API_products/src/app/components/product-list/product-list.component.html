@@ -1,0 +1,16 @@
+<div>
+    <app-product-filter (filtro)="aplicarFiltro($event)"></app-product-filter>
+</div>
+<hr>
+
+<div class="row">
+    <h4 class="text-center mb-4">Listado de productos</h4>
+    @for (product of arrProductosFiltrados; track product._id) {
+        <article class="col-12 col-md-6 col-lg-4">
+                <app-product-card [miProducto]="product" (click)="actualizarLista(product._id)"></app-product-card>
+        </article>
+        }
+    @empty {
+        <h2>No se han encontrado productos</h2>
+    }
+</div>

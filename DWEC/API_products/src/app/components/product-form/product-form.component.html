@@ -1,0 +1,67 @@
+<h4 class="text-center mb-2 card p-3 shadow" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Añade un producto</h4>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<section class="container mt-3">
+    <form [formGroup]="productForm" (ngSubmit)="anadirProducto()">
+      <h4 class="text-center mb-4">Añadir producto</h4>
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="_id" class="form-label">ID del producto</label>
+            <input type="text" class="form-control mb-3 bg-dark-subtle" placeholder="Introduce una ID" id="_id" formControlName="_id">
+          </div>
+        </div>
+  
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="name" class="form-label">Nombre del producto</label>
+            <input type="text" class="form-control mb-3 bg-dark-subtle" placeholder="Introduce un nombre" id="name" formControlName="name">
+          </div>
+        </div>
+  
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="description" class="form-label">Descripción del producto</label>
+            <input type="text" class="form-control mb-3 bg-dark-subtle" placeholder="Introduce una descripción" id="description" formControlName="description">
+          </div>
+        </div>
+  
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="price" class="form-label">Precio del producto</label>
+            <input type="number" class="form-control mb-3 bg-dark-subtle" placeholder="Introduce un precio" id="price" formControlName="price">
+          </div>
+        </div>
+  
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="category" class="form-label">Categoría del producto</label>
+            <select class="form-select mb-3 bg-dark-subtle" id="category" formControlName="category">
+              <option value="" selected>Selecciona una categoría</option>
+              <option value="hombre">Hombre</option>
+              <option value="mujer">Mujer</option>
+              <option value="niño">Niño</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="image" class="form-label">Imagen del producto</label>
+            <input type="text" class="form-control mb-3 bg-dark-subtle" placeholder="Introduce una url de imagen" id="image" formControlName="image">
+          </div>
+        </div>
+  
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="active" class="form-label">Activado</label>
+            <input class="form-check-input ms-2 bg-dark-subtle" type="checkbox" id="active" formControlName="active">
+          </div>
+        </div>
+  
+        <div class="col-12 mb-4 d-flex align-items-end">
+          <input type="submit" value="Añadir Producto" class="btn btn-dark w-100" [disabled]="!productForm.valid">
+        </div>
+    </form>
+    
+</section>
+</div>

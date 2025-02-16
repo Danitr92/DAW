@@ -1,0 +1,18 @@
+<section class="d-flex justify-content-center mt-3">
+    <div class="card shadow p-3 text-center">
+        <div class="row justify-content-center">
+            <figure class="col-12 d-flex justify-content-center align-items-start">
+                <img [src]="miUser.image" class="rounded-circle" [alt]="miUser.first_name" width="200" height="200">
+            </figure>
+            <div class="col-12">
+                <h2>{{miUser.first_name}} {{miUser.last_name}}</h2>
+                <hr>
+                <p><strong>Username:</strong> {{miUser.username}}</p>
+                <p><strong>Email:</strong> {{miUser.email}}</p>
+                <div class="d-flex justify-content-center">
+                    <app-botonera [parent]="'view'" [_id]="miUser._id"></app-botonera>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

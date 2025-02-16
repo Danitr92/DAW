@@ -1,0 +1,30 @@
+<div class="row gx-2 gy-2 d-flex justify-content-center">
+  <h3 class="d-flex justify-content-center w-100">Listado de usuarios</h3>
+  <hr>
+  <article class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center" style="max-width: 200px;">
+      <div class="card-body p-2 d-flex flex-column align-items-center justify-content-center" style="height: 100%;">
+        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 100px; height: 100px; cursor: pointer;" [routerLink]="['/nuevo/user']" routerLinkActive="active">
+          <i class="bi bi-plus-lg" style="font-size: 2rem; color: #6c757d;"></i>
+        </div>
+        <h5 class="card-title mt-2" style="font-size: 1rem; color: #6c757d;">Nuevo usuario</h5>
+      </div>
+  </article>
+
+  @for (user of arrUsers | paginate: { itemsPerPage: pageSize, currentPage: page }; track user._id) {
+    <article class="col-12 col-sm-6 col-md-4 col-lg-3" style="max-width: 200px;">
+      <app-user-card [miUser]="user"></app-user-card>
+    </article>
+  }
+  <hr>
+
+  <div class="d-flex justify-content-center">
+    <pagination-controls 
+      (pageChange)="page = $event" 
+      [maxSize]="5" 
+      [directionLinks]="true" 
+      [autoHide]="true">
+    </pagination-controls>
+  </div>
+
+</div>
+
